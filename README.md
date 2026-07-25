@@ -26,7 +26,6 @@ key concepts are drawn directly from their subjects.
 ## P01 — Code Cultivation (Object-Oriented Garden Systems)
 
 **Theme:** program structure fundamentals → foundational OOP (classes, inheritance, encapsulation).
-*(Full detailed notes: `01_code_cultivation_notes.md`)*
 
 - `if __name__ == "__main__":` and shebangs — why a file can be both a runnable script and a safely-importable module.
 - `class`, `__init__`, `self`, instance vs. class variables — the shift from Growing Code's bare functions to objects holding their own state.
@@ -84,7 +83,6 @@ key concepts are drawn directly from their subjects.
 ## P05 — Code Nexus (Polymorphic Data Streams — Abstract Classes & Polymorphism)
 
 **Theme:** `ABC`, polymorphism, `Protocol`/duck typing, and building a genuinely pluggable pipeline.
-*(Full detailed notes: `02_code_nexus_notes.md`)*
 
 - `ABC` + `@abstractmethod` for defining a shared contract (`validate`/`ingest`/`output`) that every subclass must fulfill — concrete methods living in the base class only when logic is genuinely subclass-agnostic.
 - Overriding with **narrower** parameter/return types than the abstract base declares — deliberate, common, and defensible, even though it can trigger stricter type-checker warnings.
@@ -99,7 +97,6 @@ key concepts are drawn directly from their subjects.
 ## P06 — The Codex (Mastering Python's Import Mysteries)
 
 **Theme:** the "four sacred mysteries" — packages, import styles, absolute vs. relative imports, circular dependencies.
-*(Full detailed notes: `03_the_codex_imports_notes.md`)*
 
 - `import X` vs. `from X import Y` — namespace-object access vs. bare-name access, and when each is called for.
 - `__init__.py` as a package's controllable "front door" — selectively exposing some names while leaving others unreachable from outside, a deliberate API-surface-control technique.
@@ -112,7 +109,6 @@ key concepts are drawn directly from their subjects.
 ## P07 — DataDeck (Abstract Card Architecture — Design Patterns)
 
 **Theme:** Abstract Factory, capability mixins, and the Strategy pattern, applied together on one system.
-*(Full detailed notes: `04_datadeck_notes.md`)*
 
 - **Abstract Factory**: an abstract `CreatureFactory` with `create_base()`/`create_evolved()`, letting calling code request objects generically without ever importing or naming the concrete product classes.
 - **Capability mixins**: `HealCapability`/`TransformCapability` inheriting only from `ABC` (deliberately *not* from the main `Creature` base), combined via multiple inheritance — separating "what a thing is" from "what a thing can do," reusable independent of any specific class hierarchy.
@@ -126,7 +122,6 @@ key concepts are drawn directly from their subjects.
 ## P08 — The Matrix (Data Engineering for the Real World — Environments & Config)
 
 **Theme:** virtual environments, pip vs. Poetry, and environment-variable-based configuration.
-*(Full detailed notes: `05_the_matrix_notes.md`)*
 
 - Detecting an active virtual environment via `sys.prefix` vs. `sys.base_prefix` (equal outside a venv, diverging inside one); `sys.executable` for the running interpreter's path; `site.getsitepackages()` for install location — with an awareness that this last call can itself be environment-dependent and worth guarding defensively.
 - Why venvs exist at all: a real, hands-on encounter with a genuine version-conflict crash (mismatched numpy/matplotlib binary versions from a global install) as the concrete motivation.
@@ -139,7 +134,6 @@ key concepts are drawn directly from their subjects.
 ## P09 — Cosmic Data (Pydantic Models & Validation)
 
 **Theme:** declarative data validation — `BaseModel`, `Field`, enums, custom cross-field rules, nested models.
-*(Full detailed notes: `06_cosmic_data_pydantic_notes.md`)*
 
 - `BaseModel` + `Field(...)` replacing hand-written `set_x()`/`isinstance()` validation from Code Cultivation with declarative type hints and constraints (`min_length`/`max_length` for strings, `ge`/`le` for numbers).
 - `Optional[str]`/`str | None` (what types are acceptable) vs. `Field(default=...)` (whether a value must be supplied at all) — two genuinely separate concerns, easy to conflate, directly responsible for a real "field required" bug.
@@ -153,7 +147,6 @@ key concepts are drawn directly from their subjects.
 ## P10 — FuncMage (Functional Programming — Lambdas, Higher-Order Functions, Closures, `functools`, Decorators)
 
 **Theme:** functions as first-class values — the most conceptually dense module of the piscine.
-*(Full detailed notes: `07_funcmage_functional_programming_notes.md`, plus a concept-by-concept eval-prep doc: `08_funcmage_evaluation_prep.md`)*
 
 - **Lambdas**: single-expression, nameless functions for short, throwaway logic passed directly to `sorted()`/`filter()`/`map()`/`max()`/`min()` — vs. `def` once logic needs a name, multiple statements, or reuse.
 - **Higher-order functions**: functions that take or return other functions; composability emerges naturally when a returned function matches the *same signature* as its inputs, so outputs can freely feed back into other higher-order functions. `Callable` (from `collections.abc`, a type hint) vs. `callable()` (a runtime built-in check).
